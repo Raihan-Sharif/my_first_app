@@ -5,8 +5,13 @@ void main(List<String> args) {
 }
 
 class MyApp extends StatelessWidget {
+  var questionList = [
+    'What is your favourite color?',
+    'What is your favourite Sports?'
+  ];
+  var questionIndex = 0;
   void answeredQuestion() {
-    print('Answer submitted!');
+    questionIndex++;
   }
 
   @override
@@ -18,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text('Here is the question\'s'),
+            Text(questionList[questionIndex]),
             ElevatedButton(
               child: Text('Answer 1'),
               onPressed: answeredQuestion,
