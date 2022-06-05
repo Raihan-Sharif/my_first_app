@@ -8,20 +8,20 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionList = [
+class _MyAppState extends State<MyApp> {
+  var _questionList = [
     'What is your favourite color?',
     'What is your favourite Sports?'
   ];
-  var questionIndex = 0;
-  void answeredQuestion() {
+  var _questionIndex = 0;
+  void _answeredQuestion() {
     setState(() {
-      questionIndex++;
-      print(questionIndex);
+      _questionIndex++;
+      print(_questionIndex);
     });
   }
 
@@ -34,10 +34,10 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questionList[questionIndex]),
+            Text(_questionList[_questionIndex]),
             ElevatedButton(
               child: Text('Answer 1'),
-              onPressed: answeredQuestion,
+              onPressed: _answeredQuestion,
             ),
             ElevatedButton(
               child: Text('Answer 2'),
