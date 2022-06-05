@@ -4,14 +4,25 @@ void main(List<String> args) {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
   var questionList = [
     'What is your favourite color?',
     'What is your favourite Sports?'
   ];
   var questionIndex = 0;
   void answeredQuestion() {
-    questionIndex++;
+    setState(() {
+      questionIndex++;
+      print(questionIndex);
+    });
   }
 
   @override
