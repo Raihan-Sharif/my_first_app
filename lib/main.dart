@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './answer.dart';
 import './Question.dart';
 
 void main(List<String> args) {
@@ -15,10 +16,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionList = [
-    'What is your favourite color?',
-    'What is your favourite Sports?'
+  var questionList = [
+    {
+      'Question': 'What is your favourite Color?',
+      'Answer': ['Red', 'Black', 'White', 'Blue']
+    },
+    {
+      'Question': 'What is your favourite Sports?',
+      'Answer': ['Cricket', 'Football', 'Tennis', 'BusketBall']
+    },
+    {
+      'Question': 'What is your favourite Flower?',
+      'Answer': ['Rose', 'Merrygold', 'Jasmine', 'Daisy']
+    },
   ];
+
   var _questionIndex = 0;
   void _answeredQuestion() {
     setState(() {
@@ -36,20 +48,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(_questionList[_questionIndex]),
-            ElevatedButton(
-              child: Text('Answer 1'),
-              onPressed: _answeredQuestion,
-            ),
-            ElevatedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer is 2.'),
-            ),
-            ElevatedButton(
-                child: Text('Answer 3'),
-                onPressed: () {
-                  print('Answer is 3.');
-                }),
+            Question(questionList[_questionIndex]['Question'].toString()),
+            ...(questionList[_questionIndex]['Answer'] as List<String>)
+                .map((answer) {
+              return Answer(_answeredQuestion, answer);
+            })
           ],
         ),
       ),
