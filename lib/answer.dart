@@ -10,8 +10,8 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: ElevatedButton(
-        child: Text(answer),
         onPressed: eventHandler,
+        child: Text(answer),
       ),
     );
   }
