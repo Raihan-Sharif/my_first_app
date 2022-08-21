@@ -62,16 +62,29 @@ class _MyAppState extends State<MyApp> {
       print('No more question!');
   }
 
+  void _resetQuizApp() {
+    setState(() {
+      _questionIndex = 0;
+      _scoreResult = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('This is my first app'),
+          titleTextStyle: TextStyle(
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
+          centerTitle: true,
         ),
         body: _questionIndex < _questionList.length
             ? Quiz(_questionList, _questionIndex, _answeredQuestion)
-            : Result(_scoreResult),
+            : Result(_scoreResult, _resetQuizApp),
       ),
     );
   }
