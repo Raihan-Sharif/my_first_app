@@ -36,7 +36,7 @@ class Result extends StatelessWidget {
               'Reset Quiz',
               style: TextStyle(fontSize: 25, color: Colors.blue),
             ),
-          )
+          ),
         ],
       ),
     );
